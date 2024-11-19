@@ -1,9 +1,11 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, LayoutDashboard } from 'lucide-react';
 
 const Nav = () => {
+  const navigate = useNavigate();
+
   const handleBack = () => {
-    window.history.back();
+    navigate(-1);  // Go back to the previous route
   };
 
   return (
@@ -13,7 +15,7 @@ const Nav = () => {
           {/* Back Button */}
           <button
             onClick={handleBack}
-            className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 p-2 rounded-lg"
           >
             <ArrowLeft size={20} />
             <span className="font-medium">Back</span>

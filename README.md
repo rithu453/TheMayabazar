@@ -1,3 +1,31 @@
+these files contain tailwind...soinorder to run it...steps:
+1.Install Tailwind CSS
+--npm install -D tailwindcss postcss autoprefixer
+
+2.initialize tailwind
+--npx tailwindcss init
+
+3.Open the tailwind.config.js file and customize it 
+paste this code:
+    module.exports = {
+    content: [
+        './src/**/*.{html,js,jsx,ts,tsx}', // Add the paths of your HTML/JS files
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+    }
+
+4.Add Tailwind to Your CSS
+/* src/index.css or src/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

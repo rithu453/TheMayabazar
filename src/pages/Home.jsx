@@ -51,11 +51,6 @@ function Home() {
                     Try Now
                   </button>
                 </Link>
-                <Link to="/summarize/learn">
-                  <button className="flex items-center justify-center px-4 py-2 bg-white text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </Link>
               </div>
             </div>
           </div>
@@ -94,11 +89,6 @@ function Home() {
                 <Link to="/compare">
                   <button className="flex items-center justify-center px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors duration-300">
                     Compare Now
-                  </button>
-                </Link>
-                <Link to="/compare/learn">
-                  <button className="flex items-center justify-center px-4 py-2 bg-white text-purple-500 border border-purple-500 rounded-lg hover:bg-purple-50 transition-colors duration-300">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </button>
                 </Link>
               </div>

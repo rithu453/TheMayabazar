@@ -14,7 +14,7 @@ const Compare = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Navigate to results page with data
-    navigate('/compres', {
+    navigate('/load', {
       state: {
         product1,
         product2,

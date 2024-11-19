@@ -7,6 +7,7 @@ import Sumresult from './pages/Sumresult';
 import Nav from './pages/Nav';
 import Compres from './pages/CompareResult';
 import ComparePrices from './pages/Pricecomp';
+import Load from './pages/Load';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/sumresult" element={<Sumresult />} />
         <Route path="/compres" element={<Compres />} />
         <Route path="/pricecomp" element={<ComparePrices />} />
+        <Route path="/load" element={<Load />} />
+
 
 
       </Routes>
