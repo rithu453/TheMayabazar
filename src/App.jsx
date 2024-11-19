@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Hom from './com/Home';
+import Home from './com/Home';
 import Sum from './com/Sum';
 import Compare from './com/Compare';
 import Sumresult from './com/Sumresult'; 
@@ -13,7 +13,7 @@ function App() {
     <Router>
        <Nav/>
       <Routes>
-        <Route path="/" element={<Hom />} />
+        <Route path="/" element={<Home />} />
         <Route path="/summarize" element={<Sum />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/sumresult" element={<Sumresult />} />
