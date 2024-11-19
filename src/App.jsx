@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './com/Home';
-import Sum from './com/Sum';
-import Compare from './com/Compare';
-import Sumresult from './com/Sumresult'; 
-import Nav from './com/Nav';
-import Compres from './com/CompareResult';
-import ComparePrices from './com/Pricecomp';
+import Home from './pages/Home';
+import Sum from './pages/Sum';
+import Compare from './pages/Compare';
+import Sumresult from './pages/Sumresult'; 
+import Nav from './pages/Nav';
+import Compres from './pages/CompareResult';
+import ComparePrices from './pages/Pricecomp';
 
 function App() {
   return (
