@@ -42,7 +42,7 @@ const Load = () => {
       } else {
         navigate('/compres');
       }
-    }, 1000);
+    }, 10000);
 
     return () => {
       clearInterval(intervalId);
