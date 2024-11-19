@@ -8,11 +8,11 @@ function Home() {
       {/* Header Section */}
       <div className="mb-8 flex items-center justify-center">
         <img 
-          src="/api/placeholder/50/50"
+          src="/image.png"
           alt="Logo" 
-          className="h-12 w-12 mr-4"
+          className="h-24 w-24 mr-6"
         />
-        <h1 className="text-3xl font-bold text-gray-800">Analytics Dashboard</h1>
+        
       </div>
 
       {/* Cards Container */}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Load = () => {
-  const [currentFact, setCurrentFact] = useState('');
+  const [displayText, setDisplayText] = useState('');
   const navigate = useNavigate();
   
   const facts = [
@@ -16,40 +16,40 @@ const Load = () => {
     "Tier 2 and Tier 3 cities are increasingly adopting eCommerce, contributing to the market's growth.",
     "The Digital India initiative has boosted cashless transactions and increased online shopping adoption.",
     "By 2025, rural India is expected to contribute 30-35% of the total online shoppers in India.",
-    "The rise of vernacular content and regional languages has helped eCommerce platforms reach a wider audience in India.",
-    "India’s eCommerce penetration is expected to double in the next five years.",
-    "E-commerce in India has grown rapidly due to discounted offers, the ease of return and exchange, and improved customer service.",
-    "Amazon India’s market share in India is expected to grow with new partnerships and expansions in local regions.",
-    "The growth of logistics infrastructure in India has been a key enabler of eCommerce growth, especially in tier-2 and tier-3 cities.",
-    "Online grocery sales in India saw a massive surge during the COVID-19 pandemic and are projected to continue growing.",
-    "India has one of the fastest-growing online travel markets, with millions booking travel tickets and hotel stays through eCommerce platforms.",
-    "The online furniture and home décor market in India is growing at a CAGR of around 30%, driven by urbanization and increasing disposable incomes.",
-    "Online education and digital learning platforms are part of the booming eCommerce landscape in India.",
-    "The popularity of subscription-based models (such as Amazon Prime and Netflix) has contributed to the growth of India's digital consumption."
   ];
-  
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * facts.length);
-      setCurrentFact(facts[randomIndex]);
-    }, 3000); // Change fact every 3 seconds
+    // Select a random fact once when component mounts
+    const selectedFact = facts[Math.floor(Math.random() * facts.length)];
+    const textLength = selectedFact.length;
+    const timePerChar = 10000 / textLength; // Distribute 10 seconds across all characters
 
-    const timeout = setTimeout(() => {
-      const previousPage = document.referrer;
-
-      // Navigate based on the previous page
-      if (previousPage.includes('/summarize')) {
-        navigate('/sumresult'); // If the user came from /sem, redirect to /semresult
+    let currentIndex = 0;
+    const intervalId = setInterval(() => {
+      if (currentIndex <= textLength) {
+        setDisplayText(selectedFact.slice(0, currentIndex));
+        currentIndex++;
       } else {
-        navigate('/compres'); // Default redirection
+        clearInterval(intervalId);
       }
-    }, 10000);
+    }, timePerChar);
 
-    return () => clearInterval(interval);
+    // Navigation timeout
+    const timeoutId = setTimeout(() => {
+      const previousPage = document.referrer;
+      if (previousPage.includes('/summarize')) {
+        navigate('/sumresult');
+      } else {
+        navigate('/compres');
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
   }, [navigate]);
 
-  // Generate cube positions dynamically
   const generateCubes = () => {
     const cubes = [];
     for (let h = 1; h <= 3; h++) {
@@ -136,6 +136,21 @@ const Load = () => {
                   }
                 }
               `).join('\n')}
+
+              @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+              }
+
+              .cursor {
+                display: inline-block;
+                width: 2px;
+                height: 1em;
+                background-color: white;
+                margin-left: 2px;
+                animation: blink 1s step-end infinite;
+                vertical-align: middle;
+              }
             `}</style>
 
             {generateCubes().map(({h, w, l}, index) => (
@@ -160,7 +175,8 @@ const Load = () => {
 
         <div className="bg-white/10 backdrop-blur-sm rounded-lg shadow-lg p-6 transform transition-all hover:scale-105">
           <p className="text-base text-white/90 italic font-light leading-relaxed">
-            {currentFact}
+            {displayText}
+            <span className="cursor"></span>
           </p>
           <p className="mt-3 text-sm text-white/60">Did you know?</p>
         </div>

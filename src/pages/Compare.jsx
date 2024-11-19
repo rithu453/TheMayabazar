@@ -28,12 +28,6 @@ const Compare = () => {
       <div className="compare-card">
         <div className="card-header">
           <h2>Product Comparison</h2>
-          <button 
-            className="home-button"
-            onClick={() => navigate('/')}
-          >
-            🏠
-          </button>
         </div>
 
         <div className="card-content">
